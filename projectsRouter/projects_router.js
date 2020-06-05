@@ -35,5 +35,12 @@ router.delete("/:id", (req, res) => {
     })
 }) //working
 
+router.put("/:id", (req, res) => {
+    Projects.update(req.params.id, req.body)
+    .then(updatedPost => {
+        res.status(200).json(updatedPost)
+    })
+})
+
 
 module.exports = router;
