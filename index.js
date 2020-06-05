@@ -19,8 +19,10 @@ const server = express();
 server.use(express.json());
 
 const projectsRouter = require("./projectsRouter/projects_router.js")
+const actionsRouter = require("./actionsRouter/actions_router.js")
 
 server.use("/api/projects", projectsRouter);
+server.use("/api/actions", actionsRouter);
 
 server.get("/", (req, res) => {
     res.status(200).json("Can hit")
