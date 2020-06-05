@@ -17,6 +17,13 @@ router.get("/:id", (req, res) => {
     })
 }) //working
 
+router.get("/:id/actions", (req, res) => {
+    Projects.getProjectActions(req.params.id)
+    .then(actions => {
+        res.status(200).json(actions)
+    })
+})
+
 router.post("/", (req, res) => {
     Projects.insert(req.body)
     .then(newPost => {
@@ -40,7 +47,7 @@ router.put("/:id", (req, res) => {
     .then(updatedPost => {
         res.status(200).json(updatedPost)
     })
-})
+}) //working
 
 
 module.exports = router;
