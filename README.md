@@ -39,14 +39,20 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 - [ ] Mention two parts of Express that you learned about this week.
+    - ITs basically React for Backend
+    - It allows easy implementation of middleware
 
 - [ ] Describe Middleware?
+    - An Array of functions that get executed in the order that they are introduced.
 
 - [ ] Describe a Resource?
+    - You can classify something as a resource if it is accessed by the url you provide. He URL is NOT a resource, but it allows us to access resources. And JSON objects can be viewed as representations of those resources.
 
 - [ ] What can the API return to help clients know if a request was successful?
+    - An API can return status codes to singal if a request was successful or not. Such as a status code 200. You can also send back some json information to verify that the information you need is actually sent back.
 
 - [ ] How can we partition our application into sub-applications?
+    - We can use routing to allow for specific functionality based on a type of route provided.
 
 ## Minimum Viable Product
 
