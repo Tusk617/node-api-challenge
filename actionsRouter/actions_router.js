@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     .then(actions => {
         res.status(200).json(actions)
     })
-})
+}) //this one seems redundant because of getProjectActions
 
 router.post("/:id", (req, res) => {
     const projectId = req.params.id;
@@ -20,7 +20,7 @@ router.post("/:id", (req, res) => {
             res.status(200).json(newAction)
         })
     })
-})
+}) //working
 
 router.delete("/:id/:actionid", (req, res) => {
     Projects.getProjectActions(req.params.id)
@@ -31,6 +31,16 @@ router.delete("/:id/:actionid", (req, res) => {
         })
     })
     
+}) //working
+
+router.put("/:id/:actionid", (req, res) => {
+    Projects.getProjectActions(req.params.id)
+    .then(actions => {
+        Actions.update(req.params.actionid, req.body)
+        .then(updatedAction => {
+            res.status(200).json(updatedAction)
+        })
+    })
 })
 
 module.exports = router;
