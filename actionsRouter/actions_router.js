@@ -5,7 +5,7 @@ const Projects = require("../data/helpers/projectModel.js");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    Actions.get(req.query)
+    Actions.get(req.params)
     .then(actions => {
         res.status(200).json(actions)
     })
@@ -20,6 +20,17 @@ router.post("/:id", (req, res) => {
             res.status(200).json(newAction)
         })
     })
+})
+
+router.delete("/:id/:actionid", (req, res) => {
+    Projects.getProjectActions(req.params.id)
+    .then(actions => {
+        Actions.remove(req.params.actionid)
+        .then(deletedAction => {
+            res.status(200).json(deletedAction)
+        })
+    })
+    
 })
 
 module.exports = router;
