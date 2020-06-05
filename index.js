@@ -16,6 +16,17 @@ Go code!
 const express = require("express");
 const server = express();
 
+server.use(express.json());
+
+const projectsRouter = require("./projectsRouter/projects_router.js")
+
+server.use("/api/projects", projectsRouter);
+
+server.get("/", (req, res) => {
+    res.status(200).json("Can hit")
+})
+
+
 const port = 4000;
 server.listen(port, () => {
     console.log(`Server is up on port: ${port}`)
